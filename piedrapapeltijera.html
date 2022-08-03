@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, papel o tijera</title>
+    
+</head>
+<body>
+    <h1>Piedra, papel o tijera</h1>
+    <p>Elige tu opción: 1 para piedra🪨, 2 para papel🧻, 3 para tijera✂️.</p>
+    <br>
+    <input type="number" id="inputJugador"></input><button id="botonJugador">Dale</button>
+    <span id="opcionJugador"></span>
+    <br>
+    <p>Mientras aún puedes elegir, escoge la opción de la máquina: 1 para piedra🪨, 2 para papel🧻, 3 para tijera✂️.</p>
+    <br>
+    <input type="number" id="inputPC"></input><button id="botonPC">Dale</button>
+    <span id="opcionPC"></span>
+    <br>
+    <button id="botonCombate">¡COMBATE!</button>
+    <br>
+    <span id="veredicto">¿Quién gana?</span>
+<footer>Hecho en 🇨🇴</footer>
+    <script>
+        // 1 es piedra, 2 es papel, 3 es tijera
+        let inputJugador = document.getElementById("inputJugador");
+        let inputPC = document.getElementById("inputPC");
+        let opcionJugador;
+        let opcionPC;  
+        
+        function alistarJugador()
+        {
+            if (inputJugador.value == 1)
+            {
+                document.getElementById("opcionJugador").innerHTML = "Elegiste piedra🪨";   
+            }
+            else if (inputJugador.value == 2)
+            {
+                document.getElementById("opcionJugador").innerHTML = "Elegiste papel🧻";
+            }
+            else if (inputJugador.value == 3)
+            {
+                document.getElementById("opcionJugador").innerHTML = "Elegiste tijera✂️";   
+            }
+            else
+            {
+                document.getElementById("opcionJugador").innerHTML = "wtf Jugador?🤔";
+            }
+        }
+        let botonJugador = document.getElementById("botonJugador");
+        botonJugador.addEventListener("click",alistarJugador);
+
+        function alistarPC()
+        {
+            if (inputPC.value == 1)
+                {
+                    document.getElementById("opcionPC").innerHTML = "PC elige piedra🪨"   
+                }
+             else if (inputPC.value == 2)
+                {
+                    document.getElementById("opcionPC").innerHTML = "PC elige papel🧻"   
+                }
+            else if (inputPC.value == 3)
+                {
+                    document.getElementById("opcionPC").innerHTML = "PC elige tijera✂️"   
+                }
+             else 
+                {
+                    document.getElementById("opcionPC").innerHTML = "wtf PC?🤔"
+                }
+        }
+        let botonPC = document.getElementById("botonPC");
+        botonPC.addEventListener("click",alistarPC);
+
+        
+        function combate()
+        {
+                // COMBATEEEE
+            if (inputJugador.value == inputPC.value)
+            {
+                document.getElementById("veredicto").innerHTML = "EMPATE🤣"
+            }
+            else if (inputJugador.value == 1 && inputPC.value == 2)
+            {
+                document.getElementById("veredicto").innerHTML = "PERDISTE🥲"
+            }
+            else if (inputJugador.value == 2 && inputPC.value == 3)
+            {
+                document.getElementById("veredicto").innerHTML = "PERDISTE🥲"
+            }
+            else if (inputJugador.value == 3 && inputPC.value == 1)
+            {
+                document.getElementById("veredicto").innerHTML = "PERDISTE🥲"
+            }
+            else if (inputJugador.value == 2 && inputPC.value == 1)
+            {
+                document.getElementById("veredicto").innerHTML = "GANASTE🎉"
+            }
+            else if (inputJugador.value == 3 && inputPC.value == 2)
+            {
+                document.getElementById("veredicto").innerHTML = "GANASTE🎉"
+            }
+            else if (inputJugador.value == 1 && inputPC.value == 3)
+            {
+                document.getElementById("veredicto").innerHTML = "GANASTE🎉"
+            }
+        }
+        let botonCombate = document.getElementById("botonCombate");
+        botonCombate.addEventListener("click",combate)
+        
+    </script>
+</body>
+</html>
+
+
